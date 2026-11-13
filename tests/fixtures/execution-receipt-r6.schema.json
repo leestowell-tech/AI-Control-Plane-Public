@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Execution Receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "receipt_id",
+    "job_id",
+    "endpoint_id",
+    "state",
+    "timestamps",
+    "artifacts",
+    "verification",
+    "reconciliation"
+  ],
+  "properties": {
+    "receipt_id": {
+      "type": "string"
+    },
+    "job_id": {
+      "type": "string"
+    },
+    "endpoint_id": {
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "ACKNOWLEDGED",
+        "RUNNING",
+        "CHECKPOINTED",
+        "VERIFYING",
+        "RECEIVED",
+        "RECONCILED",
+        "BLOCKED",
+        "FAILED",
+        "CANCELLED",
+        "EXPIRED",
+        "SUPERSEDED",
+        "CLOSED"
+      ]
+    },
+    "lease": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "owner": {
+          "type": "string"
+        },
+        "expires_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "timestamps": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "ref"
+        ],
+        "properties": {
+          "ref": {
+            "type": "string"
+          },
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "hash": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "consumption": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "verification": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "test",
+          "result"
+        ],
+        "properties": {
+          "test": {
+            "type": "string"
+          },
+          "result": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "UNKNOWN"
+            ]
+          },
+          "evidence": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "exceptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "receiver_state": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reconciliation": {
+      "type": "object",
+      "required": [
+        "scope_disposition",
+        "mission_status"
+      ],
+      "properties": {
+        "scope_disposition": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mission_status": {
+          "enum": [
+            "OPEN",
+            "BLOCKED",
+            "OBSERVATION",
+            "CLOSED"
+          ]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "state": {
+            "enum": [
+              "RECEIVED",
+              "RECONCILED",
+              "CLOSED"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "artifacts": {
+            "items": {
+              "properties": {
+                "hash": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "ref": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ref",
+                "hash"
+              ]
+            },
+            "minItems": 1
+          },
+          "receiver_state": {
+            "const": "VERIFIED"
+          },
+          "timestamps": {
+            "properties": {
+              "received_at": {
+                "format": "date-time",
+                "type": "string"
+              }
+            },
+            "required": [
+              "received_at"
+            ]
+          },
+          "verification": {
+            "items": {
+              "properties": {
+                "evidence": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "result": {
+                  "const": "PASS"
+                }
+              },
+              "required": [
+                "evidence"
+              ]
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "receiver_state"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "state": {
+            "const": "CLOSED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "reconciliation": {
+            "properties": {
+              "mission_status": {
+                "const": "CLOSED"
+              },
+              "scope_disposition": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
+

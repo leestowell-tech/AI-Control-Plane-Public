@@ -1,0 +1,3 @@
+# Standards-compliant Draft 2020-12 schema validation in the offline test suite.
+# Matches COMMAND's current operational validator; no hosted service is used.
+jsonschema==4.25.1

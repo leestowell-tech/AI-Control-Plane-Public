@@ -1,0 +1,20 @@
+#!/bin/sh
+set -eu
+cd "$(git rev-parse --show-toplevel)"
+python3 - <<'CHECK_PUSH_EFFECTS'
+import json,sys
+from pathlib import Path
+hold=json.loads(Path('tools/repository_hygiene.json').read_text()).get('source_push_hold')
+if hold:
+    print('SOURCE PUSH HELD: '+hold['reason'],file=sys.stderr)
+    print('Resolve the actual provider/effect and priced owner grant before changing this hold.',file=sys.stderr)
+    sys.exit(1)
+CHECK_PUSH_EFFECTS
+python3 tools/repository_hygiene.py audit
+while read local_ref local_sha remote_ref remote_sha; do
+  [ "$local_sha" = "0000000000000000000000000000000000000000" ] && continue
+  if ! git log -1 --format=%B "$local_sha" | grep -q '\[skip ci\]'; then
+    echo 'Use [skip ci] to suppress GitHub push/PR Actions. It does not suppress external deployments. Hosted checks require a priced owner-approved manual run.' >&2
+    exit 1
+  fi
+done

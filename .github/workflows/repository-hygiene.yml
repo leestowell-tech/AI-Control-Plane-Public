@@ -1,0 +1,15 @@
+# Workflow owner: leestowell-tech/AI-Control-Plane; COMMAND resource stewardship.
+# Workflow purpose: Check repository navigation, entry bounds and workflow resource safeguards.
+name: Repository hygiene
+on: [workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  hygiene:
+    timeout-minutes: 3
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7, verified 2026-10-07
+        with:
+          persist-credentials: false
+      - run: python3 tools/repository_hygiene.py audit

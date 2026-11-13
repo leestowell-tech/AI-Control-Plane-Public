@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Routing Receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "receipt_id",
+    "job_id",
+    "scope_mode",
+    "candidate_endpoints",
+    "selected_endpoint",
+    "dispatch_type",
+    "state_achieved",
+    "rationale",
+    "created_at"
+  ],
+  "properties": {
+    "receipt_id": {
+      "type": "string"
+    },
+    "job_id": {
+      "type": "string"
+    },
+    "scope_mode": {
+      "enum": [
+        "NARROW_REPAIR",
+        "BOUNDED_SUFFICIENT",
+        "MAXIMUM_COHERENT"
+      ]
+    },
+    "candidate_endpoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "endpoint_id",
+          "disposition"
+        ],
+        "properties": {
+          "endpoint_id": {
+            "type": "string"
+          },
+          "disposition": {
+            "enum": [
+              "SELECTED",
+              "REJECTED",
+              "FALLBACK",
+              "UNAVAILABLE"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "selected_endpoint": {
+      "type": "string"
+    },
+    "dispatch_type": {
+      "enum": [
+        "DIRECT",
+        "PROGRAMMATIC",
+        "HUMAN_HANDOFF",
+        "SCHEDULED",
+        "UNAVAILABLE"
+      ]
+    },
+    "state_achieved": {
+      "enum": [
+        "SELECTED",
+        "DISPATCHED",
+        "ACKNOWLEDGED",
+        "BLOCKED"
+      ]
+    },
+    "rationale": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "resource_class": {
+      "enum": [
+        "ABUNDANT",
+        "METERED",
+        "SCARCE",
+        "EXHAUSTED",
+        "UNKNOWN"
+      ]
+    },
+    "human_action_required": {
+      "type": "boolean"
+    },
+    "handoff_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "fallback_endpoint": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "created_at": {
+      "type": "string"
+    }
+  }
+}

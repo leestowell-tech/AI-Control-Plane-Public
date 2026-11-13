@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Job Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "job_id",
+    "objective",
+    "scope_mode",
+    "authority",
+    "inputs",
+    "expected_outputs",
+    "success_tests",
+    "idempotency_key",
+    "receipt_route"
+  ],
+  "properties": {
+    "job_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope_mode": {
+      "enum": [
+        "NARROW_REPAIR",
+        "BOUNDED_SUFFICIENT",
+        "MAXIMUM_COHERENT"
+      ]
+    },
+    "approved_envelope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "non_goals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authority": {
+      "type": "object",
+      "required": [
+        "source",
+        "allowed_actions"
+      ],
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "allowed_actions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "ref"
+        ],
+        "properties": {
+          "ref": {
+            "type": "string"
+          },
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "currentness": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "expected_outputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "success_tests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "stop_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "privacy_class": {
+      "type": "string"
+    },
+    "data_locality": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "deadline": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "idempotency_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "receipt_route": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

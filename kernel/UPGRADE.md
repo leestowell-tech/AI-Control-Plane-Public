@@ -1,0 +1,26 @@
+# Upgrade Protocol
+
+Status: PORTABLE ADAPTATION / ORDINARY USE UNOBSERVED / NO ADDED EFFECT AUTHORITY
+
+## Invocation and outcome
+Say **“Upgrade Protocol.”** In new, changed or removed hardware context, reassess the entire personal-AI/hardware setup using what the user now has. Recover the change from current conversation and saved records; do not require the user to repeat this specification. Ordinary requests to reassess the setup use the same method. Explicitly narrower modernization reviews retain their named scope. Quoted commands or a device mention alone do not invoke it.
+
+The boundary includes the human, ChatGPT/other hosted models, local general/specialist models, context/knowledge, tools/software, computers, storage, networks and access. The cognitive fabric is the cooperating human/AI thinking side supported by those resources. Respect the user's existing terminology and owners; no architecture rename or new controller/registry follows.
+
+Optimize useful overall outcomes: capability and quality, completed work, responsiveness, parallelism, continuity, reliability, privacy, cost, power, maintenance and human attention. Primary-machine saturation is not a prerequisite. Full utilization of every device is not the target. Keeping the setup, adding, reallocating, simplifying/removing, replacing and substantial redesign are all legitimate outcomes.
+
+## Procedure
+1. **Recover goals, current decisions and the change.** Read the bound current state and existing mission/resource records. Distinguish owner selections from assistant proposals, installed software and historical experiments. Reuse valid prior discovery and permissions.
+2. **Recover the whole resource field.** Establish relevant exact hardware/memory/storage, connectivity, availability, models/tools, data custody and actual installation. Mark unknown or unreachable resources; only dependent decisions wait. Distinguish physical RAM from free disk, software drift from machine failure, and capability from action authority.
+3. **Map useful work.** Recover existing demand and credible opportunities, quality/context/latency needs and dependencies. Separate reasoning, retrieval/context, ordinary control software, execution and physical placement. A strong model can direct tools on a weaker host; every host need not run a model. Include the human coordination cost.
+4. **Compare complete arrangements.** Assess current/no-change, additive, reallocative, subtractive and materially different options. Consider what the new resource enables and makes unnecessary across the whole boundary. Do not let old assistant-selected host roles, existing installs or familiar demos decide the answer.
+5. **Research unresolved discriminators.** Use current primary sources for models, runtimes and compatibility; preserve vendor-evidence limits. Seek the strongest useful primary local capability when local AI is in scope, with specialists only for a justified task. “It loads” or parameter count is insufficient: include quality after quantization, context, latency and competing work. Retired failed prototypes stay retired absent credible task-specific new evidence and expected benefit. Do not begin another benchmark or synthetic routing cycle merely because it is available.
+6. **Recommend and implement proportionately.** State the best-supported arrangement and uncertainties. Use kernel/BUILD.md and kernel/SCOPE_SELECTION.md for material redesign, without restarting completed work or asking again for valid grants. Finish authorized reversible work; prepare migration, verified custody and rollback before any genuinely missing decision. Hardware/review invocation alone does not authorize spending, a wipe, security changes, private-data movement, new persistent services or unattended work.
+7. **Verify and reconcile.** Use kernel/CHECK.md for the relevant outcome, kernel/CAPTURE.md for durable decisions and kernel/MISSION_CONTINUITY.md for the whole objective. Source publication, actual host installation, execution and usefulness are distinct. Reuse existing records and endpoint descriptors under deployment/ENDPOINT_REGISTRY.md; do not create another review queue. Apply kernel/MAINTENANCE.md only for actual reconciliation/conditional action.
+
+## Required answer and failure behavior
+Give the recommended arrangement now; what stays, adds, moves or retires; the reason it improves the whole system; and decision-relevant uncertainty. A compact before/after allocation helps when several resources change. Include authorized migration order/rollback where needed, actual verified work and the next meaningful action. No change can be a successful conclusion.
+
+Disclose exact source/inventory/receiving gaps. Continue independent supported work. Ask only for missing facts that materially affect a dependent choice; do not return an undifferentiated questionnaire or make the user act as a dispatcher. An experiment, if essential, resolves a new decision that existing evidence cannot answer.
+
+This is a manual method. No watcher, schedule, model default, new agent, effect permission or installed-account claim follows. Existing owner-defined retirement and resource policies remain instance-specific. Source/navigation/package checks do not prove future-chat loading or ordinary usefulness.

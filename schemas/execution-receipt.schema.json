@@ -1,0 +1,435 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Execution Receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "receipt_id",
+    "job_id",
+    "endpoint_id",
+    "state",
+    "timestamps",
+    "artifacts",
+    "verification",
+    "reconciliation"
+  ],
+  "properties": {
+    "receipt_id": {
+      "type": "string"
+    },
+    "job_id": {
+      "type": "string"
+    },
+    "endpoint_id": {
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "ACKNOWLEDGED",
+        "RUNNING",
+        "CHECKPOINTED",
+        "VERIFYING",
+        "RECEIVED",
+        "RECONCILED",
+        "BLOCKED",
+        "FAILED",
+        "CANCELLED",
+        "EXPIRED",
+        "SUPERSEDED",
+        "CLOSED"
+      ]
+    },
+    "lease": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "owner": {
+          "type": "string"
+        },
+        "expires_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "timestamps": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "ref"
+        ],
+        "properties": {
+          "ref": {
+            "type": "string"
+          },
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "hash": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "consumption": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "verification": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "test",
+          "result"
+        ],
+        "properties": {
+          "test": {
+            "type": "string"
+          },
+          "result": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "UNKNOWN"
+            ]
+          },
+          "evidence": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "exceptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "receiver_state": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reconciliation": {
+      "type": "object",
+      "required": [
+        "scope_disposition",
+        "mission_status"
+      ],
+      "properties": {
+        "scope_disposition": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mission_status": {
+          "enum": [
+            "OPEN",
+            "BLOCKED",
+            "OBSERVATION",
+            "CLOSED"
+          ]
+        },
+        "job_status": {
+          "description": "Bounded job disposition, independent from parent mission_status.",
+          "enum": [
+            "OPEN",
+            "BLOCKED",
+            "OBSERVATION",
+            "CLOSED"
+          ]
+        },
+        "artifact_disposition": {
+          "$ref": "#/$defs/artifact_disposition"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "state": {
+            "enum": [
+              "RECEIVED",
+              "RECONCILED",
+              "CLOSED"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "receipt_id": {"$ref": "#/$defs/nonblank"},
+          "job_id": {"$ref": "#/$defs/nonblank"},
+          "endpoint_id": {"$ref": "#/$defs/nonblank"},
+          "artifacts": {
+            "items": {
+              "properties": {
+                "hash": {
+                  "$ref": "#/$defs/nonblank"
+                },
+                "ref": {
+                  "$ref": "#/$defs/nonblank"
+                }
+              },
+              "required": [
+                "ref",
+                "hash"
+              ]
+            }
+          },
+          "receiver_state": {
+            "const": "VERIFIED"
+          },
+          "timestamps": {
+            "properties": {
+              "received_at": {
+                "format": "date-time",
+                "$ref": "#/$defs/nonblank"
+              }
+            },
+            "required": [
+              "received_at"
+            ]
+          },
+          "verification": {
+            "items": {
+              "properties": {
+                "evidence": {
+                  "$ref": "#/$defs/nonblank"
+                },
+                "result": {
+                  "const": "PASS"
+                },
+                "test": {
+                  "$ref": "#/$defs/nonblank"
+                }
+              },
+              "required": [
+                "evidence"
+              ]
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "receiver_state"
+        ],
+        "anyOf": [
+          {
+            "properties": {
+              "artifacts": {
+                "minItems": 1
+              }
+            }
+          },
+          {
+            "properties": {
+              "artifacts": {
+                "maxItems": 0
+              },
+              "reconciliation": {
+                "required": [
+                  "artifact_disposition"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "state": {
+            "enum": [
+              "RECONCILED",
+              "CLOSED"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "reconciliation": {
+            "properties": {
+              "scope_disposition": {
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/$defs/nonblank"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "state": {
+            "const": "CLOSED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "reconciliation": {
+            "properties": {
+              "job_status": {
+                "const": "CLOSED"
+              }
+            },
+            "anyOf": [
+              {
+                "required": [
+                  "job_status"
+                ]
+              },
+              {
+                "not": {
+                  "required": [
+                    "job_status"
+                  ]
+                },
+                "properties": {
+                  "mission_status": {
+                    "const": "CLOSED"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "reconciliation": {
+            "required": ["job_status"],
+            "properties": {
+              "job_status": {"const": "CLOSED"}
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "state": {"const": "CLOSED"}
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "nonblank": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "artifact_disposition": {
+      "description": "An explicit owning-contract exception, not permission or proof. Receiver must verify applicability and evidence.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "contract_ref",
+        "reason",
+        "evidence"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "NO_CHANGE",
+            "ARTIFACT_FREE",
+            "APPROVED_DEFERRAL",
+            "OBSERVATION_BOUND"
+          ]
+        },
+        "contract_ref": {
+          "$ref": "#/$defs/nonblank"
+        },
+        "reason": {
+          "$ref": "#/$defs/nonblank"
+        },
+        "evidence": {
+          "$ref": "#/$defs/nonblank"
+        },
+        "approval_ref": {
+          "$ref": "#/$defs/nonblank"
+        },
+        "owner": {
+          "$ref": "#/$defs/nonblank"
+        },
+        "return_condition": {
+          "$ref": "#/$defs/nonblank"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "APPROVED_DEFERRAL",
+                  "OBSERVATION_BOUND"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "owner",
+              "return_condition"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "APPROVED_DEFERRAL"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "approval_ref"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

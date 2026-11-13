@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Endpoint Descriptor",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "endpoint_id",
+    "endpoint_class",
+    "capabilities",
+    "dispatch_type",
+    "dispatch_mechanism",
+    "quota_posture",
+    "last_verified_at"
+  ],
+  "properties": {
+    "endpoint_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "endpoint_class": {
+      "enum": [
+        "CHAT_CONTROL",
+        "CODE_AGENT",
+        "WORK_AGENT",
+        "LOCAL_HOST",
+        "CI_RUNNER",
+        "CONNECTOR",
+        "SCHEDULER",
+        "HUMAN"
+      ]
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dispatch_type": {
+      "enum": [
+        "DIRECT",
+        "PROGRAMMATIC",
+        "HUMAN_HANDOFF",
+        "SCHEDULED",
+        "UNAVAILABLE"
+      ]
+    },
+    "dispatch_mechanism": {
+      "type": "string"
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reachable_sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reachable_receivers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "privacy_classes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "data_locality": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "quota_posture": {
+      "enum": [
+        "ABUNDANT",
+        "METERED",
+        "SCARCE",
+        "EXHAUSTED",
+        "UNKNOWN"
+      ]
+    },
+    "quota_window": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "cost_model": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "concurrency": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "supports_ack": {
+      "type": "boolean"
+    },
+    "supports_checkpoint": {
+      "type": "boolean"
+    },
+    "supports_cancel": {
+      "type": "boolean"
+    },
+    "supports_receipt": {
+      "type": "boolean"
+    },
+    "verification_methods": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fallback_endpoint_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "last_verified_at": {
+      "type": "string"
+    },
+    "maintenance_owner": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

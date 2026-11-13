@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "release": "protocols-2026-11-13-r8",
+  "entry": "BOOT.md",
+  "routing": "kernel/ROUTING.md",
+  "updates": "deployment/UPDATES.md",
+  "capabilities": [
+    {
+      "id": "help",
+      "path": "OPERATOR.md",
+      "purpose": "show protocols and basic commands",
+      "maturity": "instruction_level",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "mirror",
+      "path": "kernel/MIRROR.md",
+      "purpose": "upgrade the intended question with relevant expertise, then answer",
+      "maturity": "owner_defined_portable_adaptation",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "reset",
+      "path": "kernel/RESET.md",
+      "purpose": "restore objective and control",
+      "maturity": "portable_adaptation",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "build",
+      "path": "kernel/BUILD.md",
+      "purpose": "create a coherent result",
+      "maturity": "portable_adaptation",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "research",
+      "path": "kernel/RESEARCH.md",
+      "purpose": "investigate a question",
+      "maturity": "portable_adaptation",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "endpoint",
+      "path": "kernel/ENDPOINT.md",
+      "purpose": "project mature outcomes and transitions",
+      "maturity": "portable_adaptation",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "packet",
+      "path": "kernel/PACKET.md",
+      "purpose": "prepare a decision or handoff",
+      "maturity": "portable_adaptation",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "check",
+      "path": "kernel/CHECK.md",
+      "purpose": "assess a result",
+      "maturity": "pilot",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "abc",
+      "path": "kernel/ABC.md",
+      "purpose": "correct failed reasoning/workflow",
+      "maturity": "instruction_level",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "extrapolation",
+      "path": "kernel/DISCOVERY.md",
+      "purpose": "explore implications",
+      "maturity": "portable_adaptation",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "reach",
+      "path": "kernel/DISCOVERY.md",
+      "purpose": "revisit the possibility boundary",
+      "maturity": "pilot",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "capture",
+      "path": "kernel/CAPTURE.md",
+      "purpose": "save or recall useful work",
+      "maturity": "source_prepared",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "continuity",
+      "path": "kernel/MISSION_CONTINUITY.md",
+      "purpose": "carry the whole mission",
+      "maturity": "source_prepared",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "learning",
+      "path": "kernel/LEARNING.md",
+      "purpose": "turn experience into reviewed candidates",
+      "maturity": "portable_adaptation",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "maintenance",
+      "path": "kernel/MAINTENANCE.md",
+      "purpose": "reconcile and assess upkeep",
+      "maturity": "portable_adaptation",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "upgrade",
+      "path": "kernel/UPGRADE.md",
+      "purpose": "reassess the whole setup after hardware changes or a scoped modernization request",
+      "maturity": "portable_adaptation",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "execution",
+      "path": "kernel/EXECUTION_ROUTING.md",
+      "purpose": "route authorized work to real endpoints",
+      "maturity": "contract_only",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "assurance",
+      "path": "kernel/ASSURANCE.md",
+      "purpose": "ground and verify proportionately",
+      "maturity": "source_prepared",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "working_modes",
+      "path": "kernel/WORKING_MODES.md",
+      "purpose": "select working focus, optional Next continuation and Five wording layers, and independent thread Control",
+      "maturity": "portable_adaptation",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "loose_ends",
+      "path": "kernel/LOOSE_ENDS.md",
+      "purpose": "reconcile open branches and select a useful foreground target",
+      "maturity": "portable_composition",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "recall",
+      "path": "kernel/RECALL.md",
+      "purpose": "recover original intent and amendments and correct drift",
+      "maturity": "portable_composition",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "webbing",
+      "path": "kernel/WEBBING.md",
+      "purpose": "check actual owners, interfaces and receiving after change",
+      "maturity": "portable_composition",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    },
+    {
+      "id": "north_star",
+      "path": "kernel/NORTH_STAR.md",
+      "purpose": "align selection with the user's own direction and prepare requested coached work",
+      "maturity": "portable_adaptation",
+      "receiving": "TARGET_BEHAVIOR_UNOBSERVED"
+    }
+  ],
+  "scope": "Methods, reusable commands and working modes; user data, grants, tools and runtime receiving remain instance-specific."
+}

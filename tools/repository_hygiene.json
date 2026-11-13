@@ -1,0 +1,35 @@
+{
+  "source_owner": "leestowell-tech/COMMAND/tools/repository_hygiene.py",
+  "derived_checker_sha256": "c43fb873455e0db6bbee73db7df8647eca6edb828717d8df069063de05d9407f",
+  "entry_files": [
+    "AGENTS.md",
+    "BOOT.md",
+    "README.md"
+  ],
+  "entry_budgets": {
+    "BOOT.md": 16384
+  },
+  "navigation_roots": [
+    "kernel",
+    "deployment",
+    "templates",
+    "methods"
+  ],
+  "reference_files": [
+    "OPERATOR.md",
+    "kernel/ROUTING.md",
+    "deployment/RELEASE.md",
+    "deployment/UPDATES.md"
+  ],
+  "scoped_records": [],
+  "retained_diagnostics": [],
+  "scoped_record_budgets": {},
+  "required_entry_routes": {
+    "AGENTS.md": [
+      "BOOT.md",
+      "kernel/ASSURANCE.md",
+      "kernel/SECURITY_PRIVACY.md"
+    ]
+  },
+  "reference_owners": []
+}

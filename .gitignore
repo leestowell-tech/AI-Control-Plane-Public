@@ -1,0 +1,10 @@
+
+# Task-owned transient output; durable evidence is reviewed separately.
+/debug/
+/tmp/
+/scratch/
+/tools/__pycache__/
+*.tmp
+
+__pycache__/
+*.pyc

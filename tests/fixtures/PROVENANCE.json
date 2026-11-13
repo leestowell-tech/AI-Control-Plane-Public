@@ -1,0 +1,18 @@
+[
+  {
+    "fixture": "tests/fixtures/execution-receipt-r5.schema.json",
+    "source_release": "r5",
+    "source_section": "schemas/execution-receipt.schema.json",
+    "source_bundle_sha256": "cc54e59b8fa03897c68bca55ef4bceedcee1fb8610b7e9af75a92c096be44654",
+    "extracted_bytes_sha256": "472b63c30cbe555b0af82c8e6620324f935eaffa98af1ced03d84c47132818b0",
+    "purpose": "Exact historical counterfactual schema; no historical account/setup content."
+  },
+  {
+    "fixture": "tests/fixtures/execution-receipt-r6.schema.json",
+    "source_release": "r6",
+    "source_section": "schemas/execution-receipt.schema.json",
+    "source_bundle_sha256": "e6baa5d05bc5d2326a76f3d8abbfac45101755d736f48f86f9d1c5317e602cbc",
+    "extracted_bytes_sha256": "c4d83df7c9beb6d7703bb7ea84771c1fa8a073d2713155da07945b6442d1c2b8",
+    "purpose": "Exact historical counterfactual schema; no historical account/setup content."
+  }
+]

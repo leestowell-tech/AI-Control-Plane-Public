@@ -1,0 +1,127 @@
+{
+  "generation": 3,
+  "index": [
+    {
+      "aliases": [
+        "Lantern Club plan",
+        "stargazing evening",
+        "loaner telescope",
+        "telescope equipment"
+      ],
+      "class": "CURRENT_STATE",
+      "id": "lantern-club-loaner-telescope",
+      "revision": 1,
+      "status": "active",
+      "title": "Loaner telescope remains an unapproved suggestion",
+      "topic": "Fictional Lantern Club loaner telescope suggestion"
+    },
+    {
+      "aliases": [
+        "Lantern Club plan",
+        "stargazing evening",
+        "courtyard",
+        "indoor map room",
+        "forecast wind",
+        "8 mph"
+      ],
+      "class": "DECISION",
+      "id": "lantern-club-stargazing-venue",
+      "revision": 2,
+      "status": "active",
+      "title": "Corrected conditional courtyard or indoor map room decision",
+      "topic": "Fictional Lantern Club stargazing evening venue"
+    }
+  ],
+  "records": {
+    "lantern-club-loaner-telescope": {
+      "revisions": [
+        {
+          "aliases": [
+            "Lantern Club plan",
+            "stargazing evening",
+            "loaner telescope",
+            "telescope equipment"
+          ],
+          "class": "CURRENT_STATE",
+          "details": "The test user identified adding a loaner telescope as the assistant's idea and explicitly said \"I'm not approving it.\" Retain this as an unapproved suggestion only, with no purchasing, borrowing, scheduling or implementation authority. It does not change the separately approved wind-dependent venue plan.",
+          "recorded_at": "2026-10-21T00:50:51Z",
+          "revision": 1,
+          "source": {
+            "excerpt": "Remember our fictional Lantern Club plan: hold the stargazing evening in the courtyard only if the forecast wind stays below 12 mph; otherwise use the indoor map room. That's my decision for this test. Separately, your idea of adding a loaner telescope is only a suggestion—I'm not approving it.",
+            "origin": "Fictional test user instruction, received in isolated native Codex host conversation on 2026-10-21",
+            "reference": "Ephemeral test instruction; no permanent source link available."
+          },
+          "statement_kind": "assistant_proposal",
+          "status": "active",
+          "summary": "Adding a loaner telescope is only an assistant suggestion; the fictional test user explicitly did not approve it.",
+          "title": "Loaner telescope remains an unapproved suggestion",
+          "topic": "Fictional Lantern Club loaner telescope suggestion",
+          "uncertainty": "No approval has been granted. Original assistant suggestion is known only through the test user's current attribution.",
+          "valid_until": null
+        }
+      ]
+    },
+    "lantern-club-stargazing-venue": {
+      "revisions": [
+        {
+          "aliases": [
+            "Lantern Club plan",
+            "stargazing evening",
+            "courtyard",
+            "indoor map room",
+            "forecast wind",
+            "12 mph"
+          ],
+          "authorization_source": "Explicit current test-user statement: \"That's my decision for this test.\"",
+          "class": "DECISION",
+          "decision_maker": "Fictional test user",
+          "details": "The test user explicitly decided this conditional venue plan. Below 12 mph is a strict threshold; forecast wind at or above 12 mph means the indoor map room. No forecast was supplied or checked, so this records the venue-selection rule, not confirmation that the courtyard condition is met. The loaner telescope idea is a separate unapproved assistant suggestion, not part of this approved decision. This applies only to the fictional test and authorizes no real-world event action or monitoring.",
+          "recorded_at": "2026-10-21T00:50:51Z",
+          "revision": 1,
+          "source": {
+            "excerpt": "Remember our fictional Lantern Club plan: hold the stargazing evening in the courtyard only if the forecast wind stays below 12 mph; otherwise use the indoor map room. That's my decision for this test. Separately, your idea of adding a loaner telescope is only a suggestion—I'm not approving it.",
+            "origin": "Fictional test user instruction, received in isolated native Codex host conversation on 2026-10-21",
+            "reference": "Ephemeral test instruction; no permanent source link available."
+          },
+          "statement_kind": "user_decision",
+          "status": "active",
+          "summary": "Use the courtyard for the fictional Lantern Club stargazing evening only if forecast wind stays below 12 mph; otherwise use the indoor map room.",
+          "title": "Conditional courtyard or indoor map room decision",
+          "topic": "Fictional Lantern Club stargazing evening venue",
+          "uncertainty": "Forecast wind and event date are unspecified; no claim that the below-12-mph condition has been met.",
+          "valid_until": null
+        },
+        {
+          "aliases": [
+            "Lantern Club plan",
+            "stargazing evening",
+            "courtyard",
+            "indoor map room",
+            "forecast wind",
+            "8 mph"
+          ],
+          "authorization_source": "Explicit current test-user correction: \"make the courtyard wind limit below 8 mph, not 12. Keep the indoor fallback.\"",
+          "class": "DECISION",
+          "decision_maker": "Fictional test user",
+          "details": "The test user corrected the courtyard forecast-wind threshold from below 12 mph to below 8 mph and retained the indoor map room fallback. Below 8 mph is a strict threshold; forecast wind at or above 8 mph means the indoor map room. This revision supersedes only the wind limit in revision 1; the original below-12-mph decision remains preserved as history, not the current rule. No forecast was supplied or checked, so this records the venue-selection rule, not confirmation that the courtyard condition is met. The separate assistant loaner-telescope suggestion is still explicitly not approved. This applies only to the fictional test and authorizes no real-world event action or monitoring.",
+          "recorded_at": "2026-10-21T00:51:51Z",
+          "revision": 2,
+          "source": {
+            "excerpt": "Correction: make the courtyard wind limit below 8 mph, not 12. Keep the indoor fallback. The telescope suggestion is still not approved. Please remember the correction without losing the earlier decision history.",
+            "origin": "Fictional test user correction, received in isolated native Codex host conversation on 2026-10-21",
+            "reference": "Ephemeral test correction; no permanent source link available."
+          },
+          "statement_kind": "user_decision",
+          "status": "active",
+          "summary": "Use the courtyard for the fictional Lantern Club stargazing evening only if forecast wind stays below 8 mph; otherwise use the indoor map room.",
+          "title": "Corrected conditional courtyard or indoor map room decision",
+          "topic": "Fictional Lantern Club stargazing evening venue",
+          "uncertainty": "Forecast wind and event date remain unspecified; no claim that the below-8-mph condition has been met.",
+          "valid_until": null
+        }
+      ]
+    }
+  },
+  "schema_version": 1,
+  "store_id": "infinity-architecture-fictional-2026-10-21"
+}

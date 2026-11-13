@@ -1,0 +1,14 @@
+# Webbing
+Status: PORTABLE INTEGRATION AND RECONCILIATION COMPOSITION / USE UNOBSERVED
+
+Directed "Webbing", "run Webbing" or a clear request to reconnect a changed system applies the existing integration/check/update methods. Quoted names and literal webs are not invocation. This is a callable lens inside the existing Build process, not another engine, graph database, assurance lifecycle or observer.
+
+1. Before a build or relevant change, recover the real parent outcome and changed component. Identify purpose, canonical owner, inputs/outputs, consumers, valid authority, state, failure behavior and lifecycle. Trace material neighbors and dependencies; do not sweep the entire estate by default.
+2. For each affected interface name source and receiver, trigger, data/state and authority crossing, custody, acknowledgement, accountable owners, expected observable result and failure/return path. Distinguish a proposed link from an implemented one.
+3. During work exercise the actual producer -> transport -> receiver path where available. Source existence, a passing local check or worker acceptance does not establish consumer use. Test supported bad, valid and no-change cases for recurring failures; preserve evidence and honest coverage.
+4. At completion compare declared state with actual source/tool/execution and receiver state. Find missing/bypassed paths, duplicate ownership, stale labels, hidden user-relay work and unsupported completion. Verify the exact receiving version and the intended useful outcome; missing access means UNKNOWN, not success.
+5. After a relevant source or structural change, invalidate affected acceptance and recheck affected consumers. Reuse unrelated valid evidence. Disposition each implication as no change, update, connect, simplify, retire proposal or blocked; preserve existing grants and history.
+6. On failure repair the owning producer/interface/check/procedure within current authority. Verify the resulting receiving path; route supported reusable learning through kernel/LEARNING.md without promotion. Record the real blocker/next owner where repair is not possible.
+7. Reconcile material results in the existing mission/domain record, using kernel/CAPTURE.md and kernel/MAINTENANCE.md. Existing authorized stewardship may catch later drift only when its actual observer and receiving path are verified. Do not create a watcher or promise unattended coverage.
+
+Use kernel/BUILD.md for the enclosing work, kernel/CHECK.md for candidate assessment and kernel/EXECUTION_ROUTING.md for actual endpoint effects. Invocation permits review and already-authorized reversible correction; it grants no new deployment, access, spending, messaging, scheduling or deletion authority. Report source, integration, host behavior and ordinary benefit separately.
